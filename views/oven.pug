@@ -1,34 +1,34 @@
 extends layout
 
 block content
+
   h1= title
   -
     let results = [
-          {
-             "Oven_Color": "Grey",
-             "Oven_type": "Microwaveoven",
-             "Oven_Size": 20
-          },
-          {
-             "Oven_Color": "Grey",
-             "Oven_type": "Convectionoven",
-             "Oven_Size": 15
-          },
-          {
-             "Oven_Color": "Black",
-             "Oven_type": "toasteroven",
-             "Oven_Size": 30
-          },                   
-      ]
-
+      {
+        "Oven_Color": "Grey",
+        "Oven_Brand": "GE",
+        "Order_Type": "Microwave Oven",
+      },
+      {
+        "Oven_Color": "Grey",
+        "Oven_Brand": "Philips",
+        "Oven_Type": "Convection Oven",
+      },
+      {
+        "Oven_Color": "Black",
+        "Oven_Brand": "LG",
+        "Oven_Type": "Toaster Oven",
+      },                   
+    ]
   div(class= "container-fluid")
-    div(class = "row")  
-      each item, index in results
-        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_Color}
-        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_type}
-        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_Size}
-    
-    script.
+    div(class = "row")
+      each item,index in results
+        div(class= "col-sm-2" , onclick=`buy(${index})`) #{item.Oven_Color}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.Oven_Brand}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.Oven_Type}
+
+  script.
     function buy(itemNum){
       alert(`The purchased item is ${itemNum+1}`)
     }
