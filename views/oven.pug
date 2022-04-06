@@ -2,7 +2,6 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
   -
     let results = [
           {
@@ -24,7 +23,12 @@ block content
 
   div(class= "container-fluid")
     div(class = "row")  
-      each item in results
-        div(class= "col-sm-2") #{item.Oven_Color}
-        div(class= "col-sm-2") #{item.Oven_type}
-        div(class= "col-sm-2") #{item.Oven_Size}
+      each item, index in results
+        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_Color}
+        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_type}
+        div(class= "col-sm-2",  onclick=`buy(${index})`) #{item.Oven_Size}
+    
+    script.
+    function buy(itemNum){
+      alert(`The purchased item is ${itemNum+1}`)
+    }
