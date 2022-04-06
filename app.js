@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ovenRouter = require('./routes/oven');
+var addmodsRouter = require('./routes/addmods');
 
 
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/oven', ovenRouter);
+app.use('/addmods', addmodsRouter);
 
 
 
