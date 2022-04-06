@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  -
+    let results = [
+          {
+             "Oven_Color": "Grey",
+             "Oven_type": "Microwaveoven",
+             "Oven_Size": 20
+          },
+          {
+             "Oven_Color": "Grey",
+             "Oven_type": "Convectionoven",
+             "Oven_Size": 15
+          },
+          {
+             "Oven_Color": "Black",
+             "Oven_type": "toasteroven",
+             "Oven_Size": 30
+          },                   
+      ]
+
+  div(class= "container-fluid")
+    div(class = "row")  
+      each item in results
+        div(class= "col-sm-2") #{item.Oven_Color}
+        div(class= "col-sm-2") #{item.Oven_type}
+        div(class= "col-sm-2") #{item.Oven_Size}
