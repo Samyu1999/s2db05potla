@@ -4,3 +4,12 @@ block content
   h1= title
   p "The quick brown fox jumps over the lazy dog" uses every letter in the English language.
   button(type="button", class="btn btn-success", onClick = "update()") Press Me
+  button(type='button', class='btn btn-s' onClick="moreClaps()") PressMe
+  div(id ='target') Clap for me
+  
+  script.
+      var clap_count = 0;
+      function moreClaps(){
+        clap_count = clap_count + 2;
+        document.getElementById("target").innerHTML = 'Clap '+ clap_count +' times';
+      }
