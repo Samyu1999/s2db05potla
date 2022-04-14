@@ -7,7 +7,7 @@ var logger = require('morgan');
 const connectionString =
   process.env.MONGO_CON
 mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://Freezfox:Bearcat123@cluster0.x4efe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Samyuktha:samyuktha@cluster0.k6k6h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
