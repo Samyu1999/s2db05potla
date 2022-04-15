@@ -10,9 +10,16 @@ exports.oven_list = async function(req, res) {
     res.status(500);
     }
     };
-// for a specific Costume.
-exports.oven_detail = function(req, res) {
- res.send('NOT IMPLEMENTED: oven detail: ' + req.params.id);
+// for a specific Oven.
+exports.oven_detail = async function (req, res) {
+    console.log("detail" + req.params.id)
+    try {
+        result = await oven.findById(req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
 };
 // Handle Costume create on POST.
 exports.oven_create_post = async function(req, res) {
