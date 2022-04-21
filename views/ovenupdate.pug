@@ -1,0 +1,41 @@
+extends layout
+block content
+    h1= title
+ 
+    - let ovenid = toShow._id
+    - let oven_Color = toShow.oven_Color
+    - let oven_Brand = toShow.oven_Brand
+    - let oven_Type = toShow.oven_Type
+    
+     div.row(class='mb-2')
+        div.mr-1 ID is
+        div #{ovenid}
+    - let actionid = "/resource/oven/" + ovenid
+    form(id='OvenForm' action= actionid method="PUT")
+        div.form-group
+            label.ovenAttr(for='oven_Color') Oven Color
+            input#oven_Color(type='text' name='oven_Color',value= oven_Color )
+        div.form-group
+            label.ovenAttr(for='oven_Brand') Oven Brand
+            input#oven_Brand(type='text' name='oven_Brand', value= oven_Brand)
+        div.form-group
+            label.ovenAttr(for='oven_Type') Oven Type
+            input#oven_Type(type='text' name='oven_Type',value= oven_Type)
+            input(type="submit")
+        script.
+            document.forms['OvenForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                    alert("Save succeded")
+                    // TODO handle body
+                }).catch((error) => {
+                    // TODO handle error
+                    alert("Save failed " + error )
+                });
+            });

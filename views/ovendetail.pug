@@ -1,0 +1,22 @@
+extends layout
+block content
+    h1= title
+
+    - let ovenid = toShow._id
+    - let oven_Color = toShow.oven_Color
+    - let oven_Brand = toShow.oven_Brand
+    - let oven_Type = toShow.oven_Type
+
+    div
+        div.row
+            div(class='ovenAttr mr-3') Oven ID is:
+            div #{ovenid}
+        div.row
+            div(class='ovenAttr mr-3') Oven Color is:
+            div #{oven_Color}
+        div.row
+            div(class='ovenAttr mr-3') Oven Brand is:
+            div #{oven_Brand}
+        div.row
+            div(class='ovenAttr mr-3') Oven Type is:
+            div #{oven_Type}

@@ -4,5 +4,22 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: purple;
+}
+
+h1{
+  color: purple;
+}
+
+.ovenAttr {
+  background-color: purple;
+  width: 120px;
+ }
+
+ .values {
+  border: outset;
+  width: 300px;
+  border-color:purple;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -1,30 +1,32 @@
 extends layout
+
 block content
+
   h1= title
   -
     let results = [
       {
-        "Oven_Color": "Grey",
-        "Oven_Brand": "GE",
-        "Oven_Type": "Microwave Oven"
+        "oven_Color": "Grey",
+        "oven_Brand": "Phillips",
+        "oven_Type": "Convention"
       },
       {
-        "Oven_Color": "Grey",
-        "Oven_Brand": "Philips",
-        "Oven_Type": "Convection Oven"
+        "oven_Color": "Black",
+        "oven_Brand": "LG",
+        "oven_Type": "MicroWave"
       },
       {
-        "Oven_Color": "Black",
-        "Oven_Brand": "LG",
-        "Oven_Type": "Toaster Oven"
+        "oven_Color": "White",
+        "oven_Brand": "GE",
+        "oven_Type": "Toaster"
       },                   
     ]
   div(class= "container-fluid")
     div(class = "row")
       each item,index in results
-        div(class= "col-sm-2" , onclick=`buy(${index})`) #{item.Oven_Color}
-        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.Oven_Brand}
-        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.Oven_Type}
+        div(class= "col-sm-2" , onclick=`buy(${index})`) #{item.oven_Color}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.oven_Brand}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.oven_Type}
 
   script.
     function buy(itemNum){
