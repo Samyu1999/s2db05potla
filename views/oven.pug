@@ -3,32 +3,15 @@ extends layout
 block content
 
   h1= title
-  -
-    let results = [
-      {
-        "oven_Color": "Grey",
-        "oven_Brand": "Phillips",
-        "oven_Type": "Convention"
-      },
-      {
-        "oven_Color": "Black",
-        "oven_Brand": "LG",
-        "oven_Type": "MicroWave"
-      },
-      {
-        "oven_Color": "White",
-        "oven_Brand": "GE",
-        "oven_Type": "Toaster"
-      },                   
-    ]
+  - let result = results
   div(class= "container-fluid")
-    div(class = "row")
-      each item,index in results
-        div(class= "col-sm-2" , onclick=`buy(${index})`) #{item.oven_Color}
-        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.oven_Brand}
-        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.oven_Type}
+    div(class = "col m-1")
+      each item,index in result
+        - let destination = `dispatch(\"/oven/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.oven_Color}(#{item.oven_Brand}) is #{item.oven_Type}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
 
   script.
-    function buy(itemNum){
-      alert(`The purchased item is ${itemNum+1}`)
+    function dispatch(path){
+    window.location.href=path
     }
