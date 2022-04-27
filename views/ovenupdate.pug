@@ -3,9 +3,9 @@ block content
     h1= title
  
     - let ovenid = toShow._id
-    - let oven_Color = toShow.oven_Color
-    - let oven_Brand = toShow.oven_Brand
-    - let oven_Type = toShow.oven_Type
+    - let oven_color = toShow.oven_color
+    - let oven_brand = toShow.oven_brand
+    - let oven_price = toShow.oven_price
     
      div.row(class='mb-2')
         div.mr-1 ID is
@@ -13,14 +13,14 @@ block content
     - let actionid = "/resource/oven/" + ovenid
     form(id='OvenForm' action= actionid method="PUT")
         div.form-group
-            label.ovenAttr(for='oven_Color') Oven Color
-            input#oven_Color(type='text' name='oven_Color',value= oven_Color )
+            label.ovenAttr(for='oven_color') Oven Color
+            input#oven_color(type='text' name='oven_color',value= oven_color )
         div.form-group
-            label.ovenAttr(for='oven_Brand') Oven Brand
-            input#oven_Brand(type='text' name='oven_Brand', value= oven_Brand)
+            label.ovenAttr(for='oven_brand') Oven Brand
+            input#oven_brand(type='text' name='oven_brand', value= oven_brand)
         div.form-group
-            label.ovenAttr(for='oven_Type') Oven Type
-            input#oven_Type(type='text' name='oven_Type',value= oven_Type)
+            label.ovenAttr(for='oven_price') Oven Type
+            input#oven_price(type='text' name='oven_price',value= oven_price)
             input(type="submit")
         script.
             document.forms['OvenForm'].addEventListener('submit', (event) => {

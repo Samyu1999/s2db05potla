@@ -2,8 +2,8 @@ var oven = require('../models/oven');
 // List of all oven
 exports.oven_list = async function(req, res) {
     try{
-    theOven = await oven.find();
-    res.send(theOven);
+    theoven = await oven.find();
+    res.send(theoven);
     }
     catch(err){
     res.error(500,`{"error": ${err}}`);
@@ -25,9 +25,9 @@ exports.oven_detail = async function (req, res) {
 exports.oven_create_post = async function(req, res) {
     console.log(req.body)
     let document = new oven();
-    document.oven_Color = req.body.oven_Color;
-    document.oven_Brand = req.body.oven_Brand;
-    document.oven_Type = req.body.oven_Type;
+    document.oven_color = req.body.oven_color;
+    document.oven_brand = req.body.oven_brand;
+    document.oven_type = req.body.oven_type;
     try{
     let result = await document.save();
     res.send(result);
@@ -51,15 +51,16 @@ exports.oven_delete = async function (req, res) {
 };
 // Handle Costume update form on PUT.
 exports.oven_update_put = async function (req, res) {
+    //res.send('NOT IMPLEMENTED: oven update PUT' + req.params.id);
     console.log(`update on id ${req.params.id} with body
 ${JSON.stringify(req.body)}`)
     try {
         let toUpdate = await oven.findById(req.params.id)
         // Do updates of properties
-        if (req.body.oven_Color)
-            toUpdate.oven_Color = req.body.oven_Color;
-        if (req.body.oven_Brand) toUpdate.oven_Brand = req.body.oven_Brand;
-        if (req.body.oven_Type) toUpdate.oven_Type = req.body.oven_Type;
+        if (req.body.oven_color)
+            toUpdate.oven_color = req.body.oven_color;
+        if (req.body.oven_brand) toUpdate.oven_brand = req.body.oven_brand;
+        if (req.body.oven_type) toUpdate.oven_type = req.body.oven_type;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)
@@ -73,8 +74,8 @@ failed`);
 // Handle a show all view
 exports.oven_view_all_Page = async function(req, res) {
     try{
-    theOven = await oven.find();
-    res.render('Oven', { title: 'Oven Search Results', results: theOven });
+    theoven = await oven.find();
+    res.render('oven', { title: 'oven Search Results', results: theoven });
     }
     catch(err){
     res.status(500);
@@ -87,8 +88,8 @@ exports.oven_view_one_Page = async function (req, res) {
     console.log("single view for id " + req.query.id)
     try {
         result = await oven.findById(req.query.id)
-        res.render('Ovendetail',
-            { title: 'Oven Detail', toShow: result });
+        res.render('ovendetail',
+            { title: 'oven Detail', toShow: result });
     }
     catch (err) {
         res.status(500)
@@ -96,13 +97,13 @@ exports.oven_view_one_Page = async function (req, res) {
     }
 };
 
-// Handle building the view for creating a Barbeque.
+// Handle building the view for creating a oven.
 // No body, no in path parameter, no query.
 // Does not need to be async
 exports.oven_create_Page = function(req, res) {
     console.log("create view")
     try{
-    res.render('ovencreate', { title: 'Oven Create'});
+    res.render('ovencreate', { title: 'oven Create'});
     }
     catch(err){
     res.status(500)
@@ -110,13 +111,13 @@ exports.oven_create_Page = function(req, res) {
     }
     };
 
-// Handle building the view for updating a Barbeque.
+// Handle building the view for updating a oven.
 // query provides the id
 exports.oven_update_Page = async function (req, res) {
     console.log("update view for item " + req.query.id)
     try {
         let result = await oven.findById(req.query.id)
-        res.render('OvenUpdate', { title: 'Oven Update', toShow: result });
+        res.render('ovenUpdate', { title: 'oven Update', toShow: result });
     }
     catch (err) {
         res.status(500)
@@ -129,8 +130,8 @@ exports.oven_delete_Page = async function (req, res) {
     console.log("Delete view for id " + req.query.id)
     try {
         result = await oven.findById(req.query.id)
-        res.render('OvenDelete', {
-            title: 'Oven Delete', toShow:
+        res.render('ovenDelete', {
+            title: 'oven Delete', toShow:
                 result
         });
     }

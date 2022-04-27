@@ -3,9 +3,9 @@ block content
     h1= title
 
     - let ovenid = toShow._id
-    - let oven_Color = toShow.oven_Color
-    - let oven_Brand = toShow.oven_Brand
-    - let oven_Type = toShow.oven_Type
+    - let oven_color = toShow.oven_color
+    - let oven_brand = toShow.oven_brand
+    - let oven_price = toShow.oven_price
 
     div
         div.row
@@ -13,10 +13,10 @@ block content
             div #{ovenid}
         div.row
             div(class='ovenAttr mr-3') Oven Color is:
-            div #{oven_Color}
+            div #{oven_color}
         div.row
             div(class='ovenAttr mr-3') Oven Brand is:
-            div #{oven_Brand}
+            div #{oven_brand}
         div.row
             div(class='ovenAttr mr-3') Oven Type is:
-            div #{oven_Type}
+            div #{oven_price}

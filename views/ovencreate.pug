@@ -1,19 +1,19 @@
 extends layout
 block content
     h1= title
-    form(id='OvenForm' action="/resource/oven" method="POST")
+    form(id='ovenForm' action="/resource/oven" method="POST")
         div.form-group
-            label.ovenAttr(for='oven_Color') Oven Color
-            input#order_name(type='text' name='oven_Color')
+            label.ovenAttr(for='oven_color') oven type
+            input#oven_color(type='text' name='oven_color')
         div.form-group
-            label.ovenAttr(for='oven_Brand') Oven Brand
-            input#order_quantity(type='text' name='oven_Brand')
+            label.ovenAttr(for='oven_brand') oven size
+            input#oven_brand(type='text' name='oven_brand')
         div.form-group
-            label.ovenAttr(for='oven_Type') Oven Type
-            input#order_price(type='text' name='oven_Type')
+            label.ovenAttr(for='oven_price') oven cost
+            input#oven_price(type='number' name='oven_price')
             input(type="submit")
         script.
-            document.forms['OvenForm'].addEventListener('submit', (event) => {
+            document.forms['ovenForm'].addEventListener('submit', (event) => {
                 event.preventDefault();
                 // TODO do something here to show user that form is being submitted
                 fetch(event.target.action, {
